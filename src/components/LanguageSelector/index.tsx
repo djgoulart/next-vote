@@ -9,9 +9,10 @@ export default function LanguageSelector() {
     setIsOpen((oldState) => !oldState)
   }
   return (
-    <>
+    <div className="relative hidden md:flex">
       <button
         onClick={handleToggleMenu}
+        onPointerEnter={() => setIsOpen(true)}
         type="button"
         data-dropdown-toggle="language-dropdown-menu"
         className="inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
@@ -55,10 +56,22 @@ export default function LanguageSelector() {
         English (US)
       </button>
       <div
+        onPointerLeave={() => setIsOpen(false)}
         className={`
         z-50 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 ${
-          !isOpen ? '' : 'hidden'
-        }`}
+          !isOpen ? 'hidden' : ''
+        } z-50 absolute top-[46px] 
+        before:block 
+        before:bg-white 
+        before:dark:bg-gray-700 
+        before:w-4 
+        before:h-4 
+        before:rotate-45
+        before:absolute
+        before:left-[62px]
+        before:top-[-8px]
+        handleToggleMenu
+        pt-2`}
         id="language-dropdown-menu"
       >
         <ul className="py-2 font-medium" role="none">
@@ -211,6 +224,6 @@ export default function LanguageSelector() {
           </li>
         </ul>
       </div>
-    </>
+    </div>
   )
 }
