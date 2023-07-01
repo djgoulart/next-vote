@@ -15,10 +15,10 @@ export default function LanguageSelector() {
         onPointerEnter={() => setIsOpen(true)}
         type="button"
         data-dropdown-toggle="language-dropdown-menu"
-        className="inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
+        className="inline-flex cursor-pointer items-center justify-center rounded-lg px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white"
       >
         <svg
-          className="w-5 h-5 mr-2 rounded-full"
+          className="mr-2 h-5 w-5 rounded-full"
           aria-hidden="true"
           viewBox="0 0 3900 3900"
         >
@@ -58,20 +58,20 @@ export default function LanguageSelector() {
       <div
         onPointerLeave={() => setIsOpen(false)}
         className={`
-        z-50 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 ${
+        z-50 my-4 list-none divide-y divide-gray-100 rounded-lg bg-white text-base shadow dark:bg-gray-700 ${
           !isOpen ? 'hidden' : ''
-        } z-50 absolute top-[46px] 
-        before:block 
-        before:bg-white 
-        before:dark:bg-gray-700 
-        before:w-4 
-        before:h-4 
+        } handleToggleMenu absolute top-[46px] 
+        z-50 
+        pt-2 
+        before:absolute 
+        before:left-[62px] 
+        before:top-[-8px] 
+        before:block
+        before:h-4
+        before:w-4
         before:rotate-45
-        before:absolute
-        before:left-[62px]
-        before:top-[-8px]
-        handleToggleMenu
-        pt-2`}
+        before:bg-white
+        before:dark:bg-gray-700`}
         id="language-dropdown-menu"
       >
         <ul className="py-2 font-medium" role="none">
@@ -84,7 +84,7 @@ export default function LanguageSelector() {
               <div className="inline-flex items-center">
                 <svg
                   aria-hidden="true"
-                  className="h-3.5 w-3.5 rounded-full mr-2"
+                  className="mr-2 h-3.5 w-3.5 rounded-full"
                   xmlns="http://www.w3.org/2000/svg"
                   id="flag-icon-css-us"
                   viewBox="0 0 512 512"
@@ -126,7 +126,7 @@ export default function LanguageSelector() {
             >
               <div className="inline-flex items-center">
                 <svg
-                  className="h-3.5 w-3.5 rounded-full mr-2"
+                  className="mr-2 h-3.5 w-3.5 rounded-full"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   id="flag-icon-css-de"
@@ -148,7 +148,7 @@ export default function LanguageSelector() {
             >
               <div className="inline-flex items-center">
                 <svg
-                  className="h-3.5 w-3.5 rounded-full mr-2"
+                  className="mr-2 h-3.5 w-3.5 rounded-full"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   id="flag-icon-css-it"
@@ -172,7 +172,7 @@ export default function LanguageSelector() {
             >
               <div className="inline-flex items-center">
                 <svg
-                  className="h-3.5 w-3.5 rounded-full mr-2"
+                  className="mr-2 h-3.5 w-3.5 rounded-full"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   xmlnsXlink="http://www.w3.org/1999/xlink"
