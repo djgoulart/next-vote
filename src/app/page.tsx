@@ -9,6 +9,7 @@ export default function Home() {
       >
         <Room name="Squad Percy" isOpen haveMembers haveOnlineMembers />
         <Room name="Squad Percy" haveMembers />
+        <Room name="Squad Percy" />
       </div>
     </section>
   )

@@ -10,7 +10,7 @@ export function RoomMembersStatus(props: RoomMembersStatusProps) {
       <Tooltip.Provider>
         <Tooltip.Root>
           <Tooltip.Trigger asChild>
-            <a href="javascript:void(0)">
+            <a href="">
               {props.haveMembers && (
                 <FaUsers
                   className={`h-5 w-5 ${
@@ -29,7 +29,7 @@ export function RoomMembersStatus(props: RoomMembersStatusProps) {
               className="select-none rounded bg-gray-50 px-2 py-1 text-gray-800 shadow-md dark:bg-gray-900 dark:text-gray-100"
               sideOffset={5}
             >
-              {props.haveMembers ? 'Room with members' : 'Empty room'}
+              {props.haveMembers ? 'Room with members' : 'Empty Room'}
               <Tooltip.Arrow className="fill-gray-50 dark:fill-gray-900" />
             </Tooltip.Content>
           </Tooltip.Portal>

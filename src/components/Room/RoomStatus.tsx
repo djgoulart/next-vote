@@ -9,7 +9,7 @@ export function RoomStatus(props: RoomStatusProps) {
       <Tooltip.Provider>
         <Tooltip.Root>
           <Tooltip.Trigger asChild>
-            <a href="javascript:void(0)">
+            <a href="">
               <HiOutlineStatusOnline
                 className={`h-5 w-5 ${
                   props.isOpen ? 'text-green-500' : 'text-gray-500'
