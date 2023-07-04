@@ -5,7 +5,7 @@ import zod, { z } from 'zod'
 const TopicStatusValues = ['skipped', 'done', 'voting', 'waiting'] as const
 
 const topicSchema = zod.object({
-  name: z.string().max(2),
+  name: z.string(),
   status: z.enum(TopicStatusValues),
   id: z.string(),
   order: z.number(),

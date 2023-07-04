@@ -1,7 +1,7 @@
 import validateTopic from '@/lib/zod/validation/topic'
 import { Vote } from './vote'
 
-export type TopicStatusType = 'skypped' | 'done' | 'voting' | 'waiting'
+export type TopicStatusType = 'skipped' | 'done' | 'voting' | 'waiting'
 
 export type TopicType = {
   id: string
