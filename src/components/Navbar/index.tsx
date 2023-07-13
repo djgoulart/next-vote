@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import LanguageSelector from '../LanguageSelector'
+// import LanguageSelector from '../LanguageSelector'
 import ProfileDropDown from '../ProfileDropDown'
 import { ThemeToggle } from '../ThemeToggle'
 
@@ -21,7 +21,7 @@ export default function Navbar() {
         </a>
         <div className="flex items-center gap-2 md:order-2">
           <ThemeToggle />
-          <LanguageSelector />
+          {/* <LanguageSelector /> */}
           <ProfileDropDown />
 
           <button
