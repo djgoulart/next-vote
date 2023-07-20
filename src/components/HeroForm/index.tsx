@@ -15,6 +15,7 @@ import { Input } from '@/components/ui/input'
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormMessage,
@@ -47,10 +48,10 @@ export default function HeroForm() {
   return (
     <div className="lg:2/6 mt-20 text-left lg:ml-16 lg:mt-40 xl:w-2/4">
       <h1 className="text-4xl font-bold leading-none antialiased sm:text-6xl">
-        {"Let's create your voting room"}
+        {"Let's vote!"}
       </h1>
       <h4 className="text-true-gray-500 mt-6 text-xl font-light antialiased">
-        A better experience for you and your team while planning tasks.
+        Create your first voting session and start planning your tasks.
       </h4>
       <div className="mt-10">
         <Form {...form}>
@@ -70,6 +71,10 @@ export default function HeroForm() {
                         />
                       </FormControl>
                       <FormMessage className="mt-2 pl-1" />
+                      <FormDescription className="mt-2 pl-1">
+                        Give a name for your session or pick one randomly
+                        generated.
+                      </FormDescription>
                     </div>
                     <Button type="submit" className="!mt-0 h-12">
                       Create
