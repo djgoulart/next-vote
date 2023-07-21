@@ -4,7 +4,7 @@ export function ActiveSession() {
   return (
     <>
       <h3 className="text-md my-4 font-semibold">Active</h3>
-      <Card className="bg-slate-800">
+      <Card className="bg-slate-100 dark:bg-slate-800">
         <CardHeader>
           <CardTitle>Planning Squad Percy</CardTitle>
         </CardHeader>
