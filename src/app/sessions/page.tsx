@@ -3,7 +3,7 @@ import { CreateSession } from '@/components/CreateSession'
 import { SessionsHistory } from '@/components/SessionsHistory'
 import { Card, CardContent } from '@/components/ui/card'
 
-export default function Room() {
+export default function Sessions() {
   return (
     <section className="m-auto flex w-full flex-row justify-center px-4">
       <div className="mt-10 w-full max-w-7xl text-left">

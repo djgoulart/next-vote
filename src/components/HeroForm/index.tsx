@@ -37,7 +37,7 @@ export default function HeroForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: randomName,
+      name: '',
     },
   })
 
@@ -82,7 +82,7 @@ export default function HeroForm() {
                     <div className="w-full">
                       <FormControl>
                         <Input
-                          placeholder="Choose a name"
+                          placeholder={randomName}
                           className="h-[50px] w-full"
                           {...field}
                         />
