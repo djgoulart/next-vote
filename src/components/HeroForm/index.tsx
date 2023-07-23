@@ -1,17 +1,16 @@
 'use client'
-import { useState } from 'react'
-import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import * as z from 'zod'
+import { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
 import {
-  uniqueNamesGenerator,
   adjectives,
-  colors,
   animals,
+  colors,
+  uniqueNamesGenerator,
 } from 'unique-names-generator'
+import * as z from 'zod'
 
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import {
   Form,
   FormControl,
@@ -20,8 +19,11 @@ import {
   FormItem,
   FormMessage,
 } from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { useSessionStore } from '@/contexts/session'
 
 export default function HeroForm() {
+  const { sessions, createSession, getUserSessions } = useSessionStore()
   const [randomName] = useState(
     uniqueNamesGenerator({
       dictionaries: [adjectives, colors, animals],
@@ -39,10 +41,13 @@ export default function HeroForm() {
     },
   })
 
+  useEffect(() => {
+    // TODO: Set user id when implement login
+    getUserSessions('123')
+  }, [getUserSessions])
+
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values)
+    createSession(values.name)
   }
 
   return (
@@ -50,6 +55,18 @@ export default function HeroForm() {
       <h1 className="text-4xl font-bold leading-none antialiased sm:text-6xl">
         {"Let's vote!"}
       </h1>
+      {sessions.map((session) => {
+        return (
+          <div key={session.id}>
+            {session.status === 'expired' ? (
+              <del>{session.name}</del>
+            ) : (
+              session.name
+            )}
+          </div>
+        )
+      })}
+
       <h4 className="text-true-gray-500 mt-6 text-xl font-light antialiased">
         Create your first voting session and start planning your tasks.
       </h4>
