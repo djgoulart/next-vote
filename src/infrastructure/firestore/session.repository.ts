@@ -1,5 +1,5 @@
-import { SESSION_COLLECTION } from '@/firebase/firestore'
 import { db } from '@/lib/firebase/firebase'
+import { SESSION_COLLECTION } from '@/lib/firebase/firestore'
 import {
   Session,
   SessionRepositoryInterface,
