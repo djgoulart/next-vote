@@ -1,8 +1,11 @@
 import Navbar from '@/components/Navbar'
 import { ThemeProvider } from '@/components/ThemeProvider'
+import { firebaseConfig } from '@/lib/firebase/firebase'
 import '@/styles/globals.css'
+import { initializeApp } from 'firebase/app'
 import { Inter } from 'next/font/google'
 import { ReactNode } from 'react'
+import { db } from '@/lib/firebase/firebase'
 
 const inter = Inter({ subsets: ['latin'] })
 
