@@ -1,6 +1,9 @@
+"use client"
+import { useAuthStore } from '@/contexts/auth'
 import Image from 'next/image'
 
 export default function ProfileDropDown() {
+  const user = useAuthStore(state => state.user)
   return (
     <>
       <button
@@ -16,7 +19,7 @@ export default function ProfileDropDown() {
           width={32}
           height={32}
           className="w-8 h-8 rounded-full"
-          src="https://ui-avatars.com/api/?background=0D8ABC&color=fff"
+          src={user?.picture_url === null ? "https://ui-avatars.com/api/?background=0D8ABC&color=fff" : user?.picture_url ?? ""}
           alt="user photo"
         />
       </button>
