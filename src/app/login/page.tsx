@@ -6,19 +6,23 @@ import { Button } from "@/components/ui/button"
 import { useAuthStore } from "@/contexts/auth"
 import { GithubIcon } from "lucide-react"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 import { FaGit, FaGithub, FaGoogle } from "react-icons/fa";
 
 export default function Login() {
   const loginUser = useAuthStore(state => state.loginUser)
+  const redirect = useRouter()
 
   const handleSignInGoogle = async () => {
-
-    signInGoogle()
+    const resp = await signInGoogle()
+    loginUser(resp)
+    redirect.push("/")
   }
 
   const handleSignInGitHub = async () => {
     const resp = await signInGitHub()
     loginUser(resp)
+    redirect.push("/")
   }
   return (
     <div className="w-full min-h-screen flex align-items-center justify-content-center">

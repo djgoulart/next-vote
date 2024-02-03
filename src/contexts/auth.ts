@@ -11,9 +11,9 @@ type LoginUserType = {
   access_token: string
   refresh_token: string
 }
-type AuthProviderType = "github.com" | "google.com";
+export type AuthProviderType = "github.com" | "google.com";
 
-type AuthState = {
+export type AuthState = {
   user: User | null
   access_token: string | null
   refresh_token: string | null
@@ -21,7 +21,7 @@ type AuthState = {
 }
 
 type Action = {
-  loginUser(data: LoginUserType): void
+  loginUser(data: AuthState): void
   logout(): void
 }
 
@@ -32,12 +32,12 @@ export const useAuthStore = create<AuthState & Action>((set) => ({
   refresh_token: localStorage.getItem(REFRESH_TOKEN_KEY),
   auth_provider: null,
   loginUser(data) {
-    localStorage.setItem(ACCESS_TOKEN_KEY, data.access_token)
-    localStorage.setItem(REFRESH_TOKEN_KEY, data.refresh_token)
+    console.log(data)
+    localStorage.setItem(ACCESS_TOKEN_KEY, data.access_token!)
+    localStorage.setItem(REFRESH_TOKEN_KEY, data.refresh_token!)
     localStorage.setItem(USER_KEY, JSON.stringify(data.user))
 
-    const tokenInfo = data.access_token.split(".")[1]
-    const authProviderDecoded = decodeBase64(tokenInfo)
+    const authProviderDecoded = data.auth_provider
 
     if (authProviderDecoded !== "github.com" && authProviderDecoded !== "google.com") {
       return false

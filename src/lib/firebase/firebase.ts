@@ -10,14 +10,14 @@ const firebaseConfigTeste = {
   appId: process.env.FIREBASE_APP_ID,
   measurementId: process.env.FIREBASE_MEASUREMENT_ID,
 }
-export const firebaseConfig = {
-  apiKey: "AIzaSyDpU85MEnwDiLzO2-yP8QPZikr7HFQSV64",
-  authDomain: "eco-league-356911.firebaseapp.com",
-  databaseURL: "https://eco-league-356911-default-rtdb.firebaseio.com",
-  projectId: "eco-league-356911",
-  storageBucket: "eco-league-356911.appspot.com",
-  messagingSenderId: "159965280867",
-  appId: "1:159965280867:web:c42c071742b1c573bed656"
+const firebaseConfig = {
+  apiKey: "AIzaSyBTtlMfSy-3ZhOvL1G-LbalTK2-Cmr4vQ8",
+  authDomain: "next-vote.firebaseapp.com",
+  projectId: "next-vote",
+  storageBucket: "next-vote.appspot.com",
+  messagingSenderId: "1032924889786",
+  appId: "1:1032924889786:web:0e5e5e249d6b9dd687f883",
+  measurementId: "G-EJ8DFEW8DN"
 };
 
 export const app = initializeApp(firebaseConfig)

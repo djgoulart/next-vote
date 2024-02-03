@@ -1,27 +1,26 @@
 import { getAuth, signInWithPopup, GithubAuthProvider } from "firebase/auth";
-import { app, db } from "@/lib/firebase/firebase";
-import { useAuthStore } from "@/contexts/auth";
-// FIXME: Se eu nao colocar console log no app, ele reclama que o firebase nao foi iniciado
-console.log(app)
+import {app} from "../../lib/firebase/firebase"
+import { AuthProviderType, AuthState } from "@/contexts/auth";
 
+console.log(app)
 const provider = new GithubAuthProvider()
 const auth = getAuth();
-export async function signInGitHub() {
+export async function signInGitHub(): Promise<AuthState> {
   return await signInWithPopup(auth, provider)
     .then((result) => {
       const credential = GithubAuthProvider.credentialFromResult(result);
       if (!credential) {
-        return
+        throw new Error("")
       }
       const token = credential.accessToken;
 
       const user = result.user;
       if (!user) {
-        return
+        throw new Error("")
       }
 
       return {
-        auth_provider: "Github",
+        auth_provider: result.providerId as AuthProviderType,
         user: {
           email: user.email,
           id: user.uid,
@@ -29,9 +28,10 @@ export async function signInGitHub() {
           picture_url: user.photoURL
         },
         refresh_token: user.refreshToken,
-        access_token: token
+        access_token: token!
       }
     }).catch((error) => {
       console.log(error)
+      throw error
     });
 }
