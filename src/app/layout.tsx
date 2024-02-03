@@ -27,7 +27,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             dark:text-gray-50 "
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <Navbar />
             {children}
           </ThemeProvider>
         </main>

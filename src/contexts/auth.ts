@@ -49,5 +49,13 @@ export const useAuthStore = create<AuthState & Action>((set) => ({
       refresh_token: data.refresh_token,
       auth_provider: authProviderDecoded
     })
+  },
+  logout() {
+    set({
+      user: null,
+      access_token: null,
+      refresh_token: null,
+      auth_provider: null
+    })
   }
 }))
